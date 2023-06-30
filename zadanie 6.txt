@@ -1,0 +1,15 @@
+function groupByField(arr, field) {
+const obj = {};
+for (let i = 0; i < arr.length; i++) {
+const value = arr[i][field];
+if (obj[value]) {
+obj[value].push(arr[i]);
+} else {
+obj[value] = [arr[i]];
+}
+}
+return obj;
+}
+const arr = [{test: 1},{test: 2},{test: 3},{test: 1},{test: 1}];
+const res = groupByField(arr, 'test');
+console.log(res); // { 1: [{test: 1}, {test: 1}, {test: 1}], 2: [{test: 2}], 3: [{test: 3}]}
